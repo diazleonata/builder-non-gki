@@ -1,67 +1,67 @@
 {
   "kernelSource": {
-    "device": "s2", // device codename
-    "vendor": "leeco", // device manufacture
-    "name": "lesa-leeco-s2", // type whatever you want here
-    "defconfig": "lineage_s2_defconfig", // the defconfig name in arch/arm64/configs folder. Choose the one have your device codename
-    "extraConfig": "", // leave this empty if you dont have any extra config file like vendor/venus_QGKI.config
-    "repo": "https://github.com/diazleonata/android_kernel_leeco_msm8976", // the kernel source link you forked and modified
-    "branch": "lineage-22.1" // the branch if the kernel source forked and modified. Open kernel source link again and see the button below kernel source name, you will see the branch you modified
+    "device": "s2",
+    "vendor": "leeco",
+    "name": "lesa-leeco-s2",
+    "defconfig": "lineage_s2_defconfig",
+    "extraConfig": "",
+    "repo": "https://github.com/diazleonata/android_kernel_leeco_msm8976",
+    "branch": "lineage-22.1"
   },
   "use_dtb": false,
   "kp": {
-    "use": false, // If you don't use kernel patch (APatch) leave this alone
-    "kpimg_link": "" // If you don't use kernel patch (APatch) leave this alone
+    "use": false,
+    "kpimg_link": ""
   },
   "kernelsu": {
-    "enable": false, // If you don't use ksu, set to false
-    "setupLink": "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh", // The setup link of ksu, check the manual in their repo
-    "setupArg": "next", // The setup branch of ksu, check the manual in their repo
-    "setupName": "KernelSU-Next", // The setup folder name of ksu, it will be the same as repo. Except SukiSU-Ultra will be KernelSU
-    "needPatch": true, // If you need to susfs enable patch for using. Some root solution won't need this
-    "susfsLink": "https://raw.githubusercontent.com/wodanesdag/susfs4ksu/refs/heads/next-4.19/kernel_patches/KernelSU/10_enable_susfs_for_ksu.patch" // Patch link
+    "enable": false,
+    "setupLink": "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh",
+    "setupArg": "next",
+    "setupName": "KernelSU-Next",
+    "needPatch": true,
+    "susfsLink": "https://raw.githubusercontent.com/wodanesdag/susfs4ksu/refs/heads/next-4.19/kernel_patches/KernelSU/10_enable_susfs_for_ksu.patch"
   },
   "toolchains": [
     {
-      "repo": "https://gitlab.com/RainyXeon/clang-r547379", // Don't touch this if you don't know what are you doing
-      "branch": "master", // Don't touch this if you don't know what are you doing
-      "name": "clang-AOSP", // Don't touch this if you don't know what are you doing
-      "binPath": ["./bin"] // Don't touch this if you don't know what are you doing
+      "repo": "https://gitlab.com/RainyXeon/clang-r547379",
+      "branch": "master",
+      "name": "clang-AOSP",
+      "binPath": ["./bin"]
     }
   ],
-  "ccache": true, // Don't touch this if you don't know what are you doing
+  "ccache": true,
   "params": {
-    "ARCH": "arm64", // Your device arch, it can be arm or arm64. But mostly in arm64 today
-    "CC": "clang-AOSP/bin/clang", // Don't touch this if you don't know what are you doing
+    "ARCH": "arm64",
+    "CC": "clang-AOSP/bin/clang",
     "externalCommand": {
-      "KBUILD_BUILD_HOST": "perfc.org", // Your name. Can be whatever you want here. You will see in the kernel info is <yourname>@<yourhost>
-      "KBUILD_BUILD_USER": "rainyxeon", // Your host. Can be whatever you want here. You will see in the kernel info is <yourname>@<yourhost>
-      "CROSS_COMPILE": "clang-AOSP/bin/aarch64-linux-gnu-", // Don't touch this if you don't know what are you doing
-      "CROSS_COMPILE_ARM32": "clang-AOSP/bin/arm-linux-gnueabi-", // Don't touch this if you don't know what are you doing
-      "LD": "clang-AOSP/bin/ld.lld", // Don't touch this if you don't know what are you doing
-      "LLVM": "1", // Don't touch this if you don't know what are you doing
-      "LLVM_IAS": "1", // Don't touch this if you don't know what are you doing
-      "AR": "clang-AOSP/bin/llvm-ar", // Don't touch this if you don't know what are you doing
-      "NM": "clang-AOSP/bin/llvm-nm", // Don't touch this if you don't know what are you doing
-      "OBJCOPY": "clang-AOSP/bin/llvm-objcopy", // Don't touch this if you don't know what are you doing
-      "OBJDUMP": "clang-AOSP/bin/llvm-objdump", // Don't touch this if you don't know what are you doing
-      "READELF": "clang-AOSP/bin/llvm-readelf", // Don't touch this if you don't know what are you doing
-      "OBJSIZE": "clang-AOSP/bin/llvm-size", // Don't touch this if you don't know what are you doing
-      "STRIP": "clang-AOSP/bin/llvm-strip", // Don't touch this if you don't know what are you doing
-      "LDGOLD": "clang-AOSP/bin/aarch64-linux-gnu-ld.gold", // Don't touch this if you don't know what are you doing
-      "LLVM_AR": "clang-AOSP/bin/llvm-ar", // Don't touch this if you don't know what are you doing
-      "LLVM_DIS": "clang-AOSP/bin/llvm-dis" // Don't touch this if you don't know what are you doing
+      "KBUILD_BUILD_HOST": "lesakernel",
+      "KBUILD_BUILD_USER": "diazleonata",
+      "CROSS_COMPILE": "clang-AOSP/bin/aarch64-linux-gnu-",
+      "CROSS_COMPILE_ARM32": "clang-AOSP/bin/arm-linux-gnueabi-",
+      "LD": "clang-AOSP/bin/ld.lld",
+      "LLVM": "1",
+      "LLVM_IAS": "1",
+      "AR": "clang-AOSP/bin/llvm-ar",
+      "NM": "clang-AOSP/bin/llvm-nm",
+      "OBJCOPY": "clang-AOSP/bin/llvm-objcopy",
+      "OBJDUMP": "clang-AOSP/bin/llvm-objdump",
+      "READELF": "clang-AOSP/bin/llvm-readelf",
+      "OBJSIZE": "clang-AOSP/bin/llvm-size",
+      "STRIP": "clang-AOSP/bin/llvm-strip",
+      "LDGOLD": "clang-AOSP/bin/aarch64-linux-gnu-ld.gold",
+      "LLVM_AR": "clang-AOSP/bin/llvm-ar",
+      "LLVM_DIS": "clang-AOSP/bin/llvm-dis"
     }
   },
   "image": {
-    "use": true, // If you don't use boot.img method, disable this
-    "imageUrl": "https://github.com/diazleonata/android_kernel_leeco_msm8976/releases/download/cloud/boot.img", // Link if that boot.img
-    "imageName": "boot.img" // File name of that boot.img
+    "use": true,
+    "imageUrl": "https://github.com/diazleonata/android_kernel_leeco_msm8976/releases/download/cloud/boot.img",
+    "imageName": "boot.img"
   },
   "AnyKernel3": {
-    "use": false, // If you use Anykernel method, enable this
+    "use": false,
     "release": true,
-    "repo": "https://github.com/kernel-build-from-rainyland/AnyKernel3", // Your anykernel link, just find it somewhere in github. or clone it from https://github.com/kernel-build-from-rainyland/AnyKernel3. delete device.name2=sunny and edit device.name1=mojito to your device codename
-    "branch": "ruby" // the branch of that anykernel
+    "repo": "https://github.com/kernel-build-from-rainyland/AnyKernel3",
+    "branch": "ruby"
   }
 }
