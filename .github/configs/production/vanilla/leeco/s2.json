@@ -2,60 +2,75 @@
   "kernelSource": {
     "device": "s2",
     "vendor": "leeco",
-    "name": "lesa-leeco",
+    "name": "lesa-vanilla",
     "defconfig": "lineage_s2_defconfig",
     "extraConfig": "",
     "repo": "https://github.com/diazleonata/android_kernel_leeco_msm8976",
     "branch": "main"
   },
-  "use_dtb": false,
+  "use_dtb": true,
+  "use_python2": true,
   "kp": {
     "use": false,
-    "kpimg_link": ""
+    "kpimg_link": "https://github.com/SukiSU-Ultra/SukiSU_KernelPatch_patch/releases/download/0.12.0/kpimg"
   },
   "kernelsu": {
     "enable": false,
-    "setupLink": "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh",
-    "setupArg": "next",
-    "setupName": "KernelSU-Next",
-    "needPatch": true,
-    "susfsLink": "https://raw.githubusercontent.com/wodanesdag/susfs4ksu/refs/heads/next-4.19/kernel_patches/KernelSU/10_enable_susfs_for_ksu.patch"
+    "setupLink": "https://raw.githubusercontent.com/kernel-build-from-rainyland/SukiSU-Ultra/main/kernel/setup.sh",
+    "setupArg": "susfs-revert",
+    "setupName": "KernelSU",
+    "needPatch": false,
+    "susfsLink": ""
   },
   "toolchains": [
     {
-      "repo": "https://gitlab.com/RainyXeon/clang-r547379",
-      "branch": "master",
-      "name": "clang-AOSP",
+      "repo": "https://gitlab.com/kutemeikito/rastamod69-clang",
+      "branch": "clang-21.0",
+      "name": "toolchain/clang-AOSP",
+      "binPath": ["./bin"]
+    },
+    {
+      "repo": "https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9",
+      "branch": "lineage-19.1",
+      "name": "toolchain/aarch64-linux-android-4.9",
+      "binPath": ["./bin"]
+    },
+    {
+      "repo": "https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9",
+      "branch": "lineage-19.1",
+      "name": "toolchain/arm-linux-androideabi-4.9",
       "binPath": ["./bin"]
     }
   ],
   "ccache": true,
   "params": {
     "ARCH": "arm64",
-    "CC": "clang-AOSP/bin/clang",
+    "CC": "toolchain/clang-AOSP/bin/clang",
+    "build_out": "Image.gz-dtb dtbo.img",
     "externalCommand": {
-      "KBUILD_BUILD_HOST": "lesakernel",
-      "KBUILD_BUILD_USER": "diazleonata",
-      "CROSS_COMPILE": "clang-AOSP/bin/aarch64-linux-gnu-",
-      "CROSS_COMPILE_ARM32": "clang-AOSP/bin/arm-linux-gnueabi-",
-      "LD": "clang-AOSP/bin/ld.lld",
-      "LLVM": "1",
-      "LLVM_IAS": "1",
-      "AR": "clang-AOSP/bin/llvm-ar",
-      "NM": "clang-AOSP/bin/llvm-nm",
-      "OBJCOPY": "clang-AOSP/bin/llvm-objcopy",
-      "OBJDUMP": "clang-AOSP/bin/llvm-objdump",
-      "READELF": "clang-AOSP/bin/llvm-readelf",
-      "OBJSIZE": "clang-AOSP/bin/llvm-size",
-      "STRIP": "clang-AOSP/bin/llvm-strip",
-      "LDGOLD": "clang-AOSP/bin/aarch64-linux-gnu-ld.gold",
-      "LLVM_AR": "clang-AOSP/bin/llvm-ar",
-      "LLVM_DIS": "clang-AOSP/bin/llvm-dis"
+      "KBUILD_BUILD_HOST": "perfc.org",
+      "KBUILD_BUILD_USER": "rainyxeon",
+      "CC": "toolchain/clang-AOSP/bin/clang",
+      "LD": "toolchain/clang-AOSP/bin/ld.lld",
+      "AR": "toolchain/clang-AOSP/bin/llvm-ar",
+      "AS": "toolchain/clang-AOSP/bin/llvm-as",
+      "NM": "toolchain/clang-AOSP/bin/llvm-nm",
+      "OBJCOPY": "toolchain/clang-AOSP/bin/llvm-objcopy",
+      "OBJDUMP": "toolchain/clang-AOSP/bin/llvm-objdump",
+      "STRIP": "toolchain/clang-AOSP/bin/llvm-strip",
+      "CROSS_COMPILE": "toolchain/aarch64-linux-android-4.9/bin/aarch64-linux-android-",
+      "CROSS_COMPILE_COMPAT": "toolchain/clang-AOSP/bin/arm-linux-androideabi-",
+      "CLANG_TRIPLE": "toolchain/clang-AOSP/bin/aarch64-linux-gnu-"
     }
   },
-  "image": {
+  "AnyKernel3": {
     "use": true,
-    "imageUrl": "https://github.com/diazleonata/android_kernel_leeco_msm8976/releases/download/cloud/boot.img",
-    "imageName": "boot.img"
+    "release": true,
+    "repo": "https://github.com/kernel-build-from-rainyland/AnyKernel3",
+    "branch": "master"
+  },
+  "image": {
+    "use": false,
+    "imageUrl": ""
   }
 }
