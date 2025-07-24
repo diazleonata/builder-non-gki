@@ -6,7 +6,7 @@
     "defconfig": "lineage_s2_defconfig",
     "extraConfig": "",
     "repo": "https://github.com/diazleonata/android_kernel_leeco_msm8976",
-    "branch": "lineage-22.1"
+    "branch": "'lineage-22.1'"
   },
   "use_dtb": false,
   "kp": {
