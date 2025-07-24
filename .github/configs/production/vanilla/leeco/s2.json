@@ -2,11 +2,11 @@
   "kernelSource": {
     "device": "s2",
     "vendor": "leeco",
-    "name": "lesa-leeco-s2",
+    "name": "lesa-leeco",
     "defconfig": "lineage_s2_defconfig",
     "extraConfig": "",
     "repo": "https://github.com/diazleonata/android_kernel_leeco_msm8976",
-    "branch": "'lineage-22.1'"
+    "branch": "main"
   },
   "use_dtb": false,
   "kp": {
