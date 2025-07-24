@@ -57,11 +57,5 @@
     "use": true,
     "imageUrl": "https://github.com/diazleonata/android_kernel_leeco_msm8976/releases/download/cloud/boot.img",
     "imageName": "boot.img"
-  },
-  "AnyKernel3": {
-    "use": false,
-    "release": true,
-    "repo": "https://github.com/kernel-build-from-rainyland/AnyKernel3",
-    "branch": "ruby"
   }
 }
