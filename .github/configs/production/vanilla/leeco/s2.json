@@ -5,8 +5,8 @@
     "name": "lesa-leeco",
     "defconfig": "lineage_s2_defconfig",
     "extraConfig": "",
-    "branch": "main",
-    "repo": "https://github.com/diazleonata/android_kernel_leeco_msm8976"
+    "repo": "https://github.com/diazleonata/android_kernel_leeco_msm8976",
+    "branch": "main"
   },
   "use_dtb": false,
   "kp": {
