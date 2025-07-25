@@ -1,3 +1,4 @@
+[
 {
   "kernelSource": {
     "device": "s2",
@@ -5,8 +6,8 @@
     "name": "lesa-vanilla",
     "defconfig": "lineage_s2_defconfig",
     "extraConfig": "",
-    "repo": "https://github.com/acroreiser/android_kernel_leeco_msm8976",
-    "branch": "lineage-22.1"
+    "repo": "https://github.com/diazleonata/android_kernel_leeco_msm8976",
+    "branch": "main"
   },
   "use_dtb": true,
   "use_python2": true,
@@ -74,3 +75,4 @@
     "imageUrl": ""
   }
 }
+]
